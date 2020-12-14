@@ -34,12 +34,30 @@ oc kustomize config5
 oc apply -k config5/
 oc get pod
 
-Demo6
+Demo6- deployment
 ====
-oc kustomize config5
-oc apply -k config5/
+oc kustomize config6
+oc apply -k config6/
 oc get pod
 
-Demo7
+Demo7-Restore and delete using kustomization tool
 =====
-
+Deploy
+oc apply -k config7/
+SHOW THE OUTPUT
+SHOW HOW TO DELETE
+oc delete -k config7/
+AGAIN DEPLOY
+oc apply -k config7/
+COMPARE AND SHOW OUTPUT
+oc diff -k config7/
+EDIT REPLICA VALUE
+oc edit deployment 
+COMPARE AND SHOW OUTPUT
+oc diff -k config7/
+oc get pod
+SHOW THE OUTPUT
+RESTORE
+oc apply -k config7/
+oc get pod
+oc diff -k config7/
