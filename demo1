@@ -34,3 +34,12 @@ oc kustomize config5
 oc apply -k config5/
 oc get pod
 
+Demo6
+====
+oc kustomize config5
+oc apply -k config5/
+oc get pod
+
+Demo7
+=====
+
