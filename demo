@@ -1,0 +1,94 @@
+
+.kube/config
+oc config get-context -to list
+oc config use-context -to change
+oc config set-context -to up
+oc config set-credentials username --token=-------------
+oc config set-cluster somename --server=just-apiname-no-url-required
+oc config set context.some-username.namespace projectname
+
+DEMO
+oc login -u  admin -p redhat https://api.ocp4.example.com:6443
+oc config set-context anand --cluster=api-ocp4-example-com:6443 --namespace=openshift --user=admin
+oc config use-context anand #will result in switching
+
+##########################################################################################
+1] LOGIN AS ADMIN
+2] CREATE NAMESPACE AND ROLE
+3] LOGIN AS DEVELOPER
+3] DEPLOY kubernetes-demo1/direct-demo1.yml
+4]  SHOW kubectl get ingress
+5]  SHOW kubectl get pod
+6] SHOW CURL output
+
+KUBERNETES NATIVE CONFIGURATION SYSTEM [KUSTOMIZE] demo [380-KUBERNETES-DEMO2]
+####################################################### 
+1] kubectl create namespace name
+2] kubectl apply -k overlays/prod 
+3] curl deploying-practice.apps.ocp4.example.com
+4] kubectl apply -k overlays-update/prod 
+5] curl deploying-practice.apps.ocp4.example.com
+
+Demo1 of configmap-files
+=======================
+oc new-project test100
+git clone the demo files
+To Validate
+###########
+oc kustomize config1/
+To Apply
+###########
+oc apply -k config1
+oc get cm
+
+Demo2 of configmap-literals
+==========================
+oc kustomize config2/
+oc apply -k config2/
+oc get cm
+
+Demo3 of secret-files
+====================
+oc kustomize config3/
+oc apply -k config3/
+oc get secret
+
+Demo4 of secret-literal
+======================
+oc kustomize config4/
+oc apply -k config4/
+oc get secret
+
+Demo5
+=====
+oc kustomize config5
+oc apply -k config5/
+oc get pod
+
+Demo6- deployment
+====
+oc kustomize config6
+oc apply -k config6/
+oc get pod
+
+Demo7-Restore and delete using kustomization tool
+=====
+Deploy
+oc apply -k config7/
+SHOW THE OUTPUT
+SHOW HOW TO DELETE
+oc delete -k config7/
+AGAIN DEPLOY
+oc apply -k config7/
+COMPARE AND SHOW OUTPUT
+oc diff -k config7/
+EDIT REPLICA VALUE
+oc edit deployment 
+COMPARE AND SHOW OUTPUT
+oc diff -k config7/
+oc get pod
+SHOW THE OUTPUT
+RESTORE
+oc apply -k config7/
+oc get pod
+oc diff -k config7/
