@@ -1,0 +1,4 @@
+secretGenerator:
+- name: secret-1
+  files:
+  - secret.txt

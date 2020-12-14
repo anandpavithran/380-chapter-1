@@ -6,4 +6,4 @@ commonLabels:
 commonAnnotations:
   oncallPager: 800-555-1212
 resources:
-- deployment.yaml
+- deployment.yml

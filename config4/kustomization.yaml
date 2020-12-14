@@ -1,0 +1,10 @@
+secretGenerator:
+- name: secret-2
+  literals:
+  - PASSWORD=redhat
+generatorOptions:    
+  disableNameSuffixHash: true
+  labels:
+    type: generated
+  annotations:  
+    note: demo-of-generator-options
