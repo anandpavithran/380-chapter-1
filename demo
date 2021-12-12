@@ -7,7 +7,9 @@ oc config set-credentials username --token=-------------
 oc config set-cluster somename --server=just-apiname-no-url-required
 oc config set context.some-username.namespace projectname
 
-DEMO
+DEMO -
+DO IN FOLLOWING SEQUENCE
+SET-CONTEXT , USE-CONTEXT, LOGIN ,VERIFY
 oc login -u  admin -p redhat https://api.ocp4.example.com:6443
 oc config set-context anand --cluster=api-ocp4-example-com:6443 --namespace=openshift --user=admin
 oc config use-context anand #will result in switching
