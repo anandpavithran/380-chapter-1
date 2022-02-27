@@ -1,6 +1,6 @@
 
 .kube/config
-oc config get-context -to list
+oc config get-contexts -to list
 oc config use-context -to change
 oc config set-context -to up
 oc config set-credentials username --token=-------------
